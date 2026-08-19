@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agendamento online da Barbearia Black.">
+  <meta name="theme-color" content="#090909">
+  <title>Barbearia Black | Agendamento</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header" id="inicio">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="logo" href="#inicio" aria-label="Barbearia Black - Início"><span>BB</span><strong>Barbearia Black</strong></a>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Início</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#agendamento">Agendamento</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Tradição, precisão e personalidade</p>
+          <h1 id="heroTitle">Seu estilo <span>começa aqui.</span></h1>
+          <p class="hero-text">Cortes modernos, barba impecável e atendimento personalizado em um ambiente elegante e confortável.</p>
+          <div class="hero-actions"><a class="button primary" href="#agendamento">Agendar horário</a><a class="button secondary" href="#servicos">Ver serviços</a></div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="emblem"><div class="scissors">✂</div><strong>BLACK</strong><small>BARBER SHOP</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos" aria-labelledby="servicesTitle">
+      <div class="container">
+        <header class="section-heading reveal"><p class="eyebrow">Cuidados completos</p><h2 id="servicesTitle">Nossos serviços</h2><p>Escolha seu serviço e reserve um horário com poucos cliques.</p></header>
+        <div class="cards services-grid">
+          <article class="service-card reveal"><span class="service-icon">✂</span><h3>Corte tradicional</h3><p>Corte clássico com tesoura ou máquina, acabamento e finalização.</p><div class="service-meta"><strong>R$ 40,00</strong><span>40 min</span></div><button class="choose-service" data-service="Corte tradicional" type="button">Escolher</button></article>
+          <article class="service-card featured reveal"><span class="badge">Mais escolhido</span><span class="service-icon">◩</span><h3>Degradê</h3><p>Transição precisa nas laterais, acabamento e estilização.</p><div class="service-meta"><strong>R$ 50,00</strong><span>50 min</span></div><button class="choose-service" data-service="Degradê" type="button">Escolher</button></article>
+          <article class="service-card reveal"><span class="service-icon">♜</span><h3>Corte + Barba</h3><p>Pacote completo com corte, desenho da barba e finalização.</p><div class="service-meta"><strong>R$ 75,00</strong><span>80 min</span></div><button class="choose-service" data-service="Corte + Barba" type="button">Escolher</button></article>
+          <article class="service-card reveal"><span class="service-icon">♛</span><h3>Barba</h3><p>Modelagem, alinhamento, toalha quente e produtos especiais.</p><div class="service-meta"><strong>R$ 35,00</strong><span>35 min</span></div><button class="choose-service" data-service="Barba" type="button">Escolher</button></article>
+          <article class="service-card reveal"><span class="service-icon">⌁</span><h3>Sobrancelha</h3><p>Limpeza e alinhamento para valorizar a expressão do rosto.</p><div class="service-meta"><strong>R$ 15,00</strong><span>15 min</span></div><button class="choose-service" data-service="Sobrancelha" type="button">Escolher</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking" id="agendamento" aria-labelledby="bookingTitle">
+      <div class="container">
+        <header class="section-heading reveal"><p class="eyebrow">Reserve seu momento</p><h2 id="bookingTitle">Agendamento</h2><p>Campos marcados com * são obrigatórios.</p></header>
+        <div class="booking-layout">
+          <form id="bookingForm" class="booking-form reveal" novalidate>
+            <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+            <fieldset><legend>Dados do cliente</legend><div class="form-grid">
+              <div class="field"><label for="clientName">Nome completo *</label><input id="clientName" name="clientName" type="text" autocomplete="name" placeholder="Ex.: João da Silva" required><small class="error"></small></div>
+              <div class="field"><label for="phone">Telefone/WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" placeholder="(11) 99999-9999" required><small class="error"></small></div>
+            </div></fieldset>
+            <fieldset><legend>Serviço e horário</legend><div class="form-grid">
+              <div class="field"><label for="service">Serviço *</label><select id="service" name="service" required><option value="">Selecione</option><option>Corte tradicional</option><option>Degradê</option><option>Corte + Barba</option><option>Barba</option><option>Sobrancelha</option></select><small class="error"></small></div>
+              <div class="field"><label for="barber">Barbeiro *</label><select id="barber" name="barber" required><option value="">Selecione</option><option>Carlos</option><option>Rafael</option><option>Marcos</option></select><small class="error"></small></div>
+              <div class="field"><label for="date">Data *</label><input id="date" name="date" type="date" required><small class="error"></small></div>
+              <div class="field"><label for="time">Horário *</label><select id="time" name="time" required><option value="">Selecione</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option></select><small class="error"></small></div>
+            </div></fieldset>
+            <fieldset><legend>Detalhes do corte</legend><div class="form-grid details-grid">
+              <div class="field"><label for="fade">Tipo de degradê *</label><select id="fade" name="fade" required><option value="">Selecione</option><option>Nenhum</option><option>Baixo</option><option>Médio</option><option>Alto</option></select><small class="error"></small></div>
+              <div class="field"><label for="sides">Laterais *</label><select id="sides" name="sides" required><option value="">Selecione</option><option>Máquina 0</option><option>Máquina 1</option><option>Máquina 2</option><option>Tesoura</option><option>Personalizado</option></select><small class="error"></small></div>
+              <div class="field"><label for="top">Parte de cima *</label><select id="top" name="top" required><option value="">Selecione</option><option>Manter comprimento</option><option>Curto</option><option>Médio</option><option>Personalizado</option></select><small class="error"></small></div>
+              <div class="field"><label for="beard">Barba *</label><select id="beard" name="beard" required><option value="">Selecione</option><option>Não</option><option>Aparar</option><option>Fazer completa</option></select><small class="error"></small></div>
+              <div class="field"><label for="eyebrow">Sobrancelha *</label><select id="eyebrow" name="eyebrow" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select><small class="error"></small></div>
+            </div>
+            <div class="field"><label for="specifications">Como você quer o seu corte? *</label><textarea id="specifications" name="specifications" rows="5" minlength="10" placeholder="Ex.: Degradê baixo, máquina 1 nas laterais, manter o comprimento em cima e fazer acabamento na barba." required></textarea><small class="hint">Descreva comprimento, acabamento e referências.</small><small class="error"></small></div>
+            <div class="field"><label for="notes">Observações adicionais</label><textarea id="notes" name="notes" rows="3" placeholder="Ex.: Tenho sensibilidade a determinado produto."></textarea><small class="error"></small></div>
+            </fieldset>
+            <button class="button primary submit-button" type="submit">Confirmar agendamento</button><p class="privacy">Os dados ficam armazenados apenas neste navegador.</p>
+          </form>
+          <aside class="booking-info reveal"><p class="eyebrow">Informações úteis</p><h3>Antes de agendar</h3><ol><li><span>1</span>Escolha serviço e profissional.</li><li><span>2</span>Descreva os detalhes do corte.</li><li><span>3</span>Confirme pelo WhatsApp após salvar.</li></ol><div class="hours"><strong>Funcionamento</strong><p>Segunda a sexta: 09h às 20h</p><p>Sábado: 09h às 18h</p><p>Domingo: fechado</p></div></aside>
+        </div>
+        <article id="confirmation" class="confirmation" hidden aria-live="polite"><header><span>✓</span><div><p class="eyebrow">Reserva realizada</p><h3>Agendamento confirmado!</h3></div></header><div id="confirmationData" class="confirmation-data"></div><a id="whatsappButton" class="button whatsapp" href="#" target="_blank" rel="noopener noreferrer">Enviar agendamento pelo WhatsApp</a></article>
+      </div>
+    </section>
+
+    <section class="section appointments" id="meus-agendamentos" aria-labelledby="appointmentsTitle"><div class="container"><header class="section-heading reveal"><p class="eyebrow">Suas reservas</p><h2 id="appointmentsTitle">Meus Agendamentos</h2><p>Consulte ou cancele os horários salvos neste navegador.</p></header><div id="appointmentsList" class="appointments-grid" aria-live="polite"></div></div></section>
+
+    <section class="section about" id="sobre" aria-labelledby="aboutTitle"><div class="container about-grid"><div class="about-visual reveal"><strong>10+</strong><span>anos cuidando do seu estilo</span></div><div class="reveal"><p class="eyebrow">Conheça a Barbearia Black</p><h2 id="aboutTitle">Muito mais que um corte</h2><p class="about-intro">Técnicas clássicas, tendências modernas e atendimento próximo para oferecer uma experiência completa.</p><div class="benefits"><article><span>✦</span><h3>Profissionais especializados</h3><p>Equipe preparada para diferentes estilos.</p></article><article><span>◆</span><h3>Ambiente confortável</h3><p>Espaço elegante e acolhedor.</p></article><article><span>◎</span><h3>Atendimento personalizado</h3><p>Cuidado alinhado às suas preferências.</p></article><article><span>✓</span><h3>Agendamento fácil</h3><p>Reserve seu horário em poucos passos.</p></article></div></div></div></section>
+
+    <section class="section contact" id="contato" aria-labelledby="contactTitle"><div class="container"><header class="section-heading reveal"><p class="eyebrow">Fale conosco</p><h2 id="contactTitle">Contato</h2><p>Visite nosso espaço ou fale com a equipe.</p></header><div class="contact-grid"><article class="contact-card reveal"><span>☎</span><h3>Telefone</h3><a href="tel:+551133334444">(11) 3333-4444</a></article><article class="contact-card reveal"><span>◉</span><h3>WhatsApp</h3><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">(11) 99999-9999</a></article><article class="contact-card reveal"><span>＠</span><h3>Instagram</h3><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@barbeariablack</a></article><article class="contact-card reveal"><span>⌖</span><h3>Endereço</h3><p>Rua do Estilo, 100 - Centro, São Paulo - SP</p></article></div><div class="opening reveal"><div><p class="eyebrow">Horário de funcionamento</p><h3>Estamos esperando por você</h3></div><div><p><strong>Segunda a sexta</strong><span>09h às 20h</span></p><p><strong>Sábado</strong><span>09h às 18h</span></p><p><strong>Domingo</strong><span>Fechado</span></p></div></div></div></section>
+  </main>
+  <footer><div class="container footer-content"><a class="logo" href="#inicio"><span>BB</span><strong>Barbearia Black</strong></a><p>© <span id="year"></span> Barbearia Black. Todos os direitos reservados.</p><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+</body>
+</html>
